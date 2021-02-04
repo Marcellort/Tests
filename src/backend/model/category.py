@@ -1,16 +1,15 @@
 import sys
+
 sys.path.append('.')
 
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String
 from sqlalchemy.orm import validates
 from src.utils.validators import validate_type, validate_not_empty, validate_len
+from src.backend.model.base_model import BaseModel
 
-base = declarative_base()
 
-class Category(base):
+class Category(BaseModel):
     __tablename__ = 'category'
-    id = Column('id', Integer, nullable=False, primary_key=True)
     name = Column('name', String(length=100), nullable=False)
     description = Column('description', String(length=200), nullable=True)
 
