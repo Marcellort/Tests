@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block body %}
+    <a class="btn btn-primary" href="/create_category" style="float: right">New Category</a>
+    <table class="table">
+        <thead>
+            <tr class="table-primary">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in list_category %}
+            <tr>
+                <td>{{category.name}}</td>
+                <td>{{category.description}}</td>
+                <td>
+                    <a style="color: red;" href="/delete_category/{{category.id_}}">Delete</a>
+                    <a style="color: blue;" href="/update_category/{{category.id_}}">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
