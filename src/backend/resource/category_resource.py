@@ -29,6 +29,6 @@ class CategoryResource(BaseResource):
     def put(self, id):
         return super().put(id)
 
-    @marshal_with
+    @marshal_with(fields)
     def delete(self, id):
         return super().delete(id)

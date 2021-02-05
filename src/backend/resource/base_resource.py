@@ -28,9 +28,6 @@ class BaseResource(Resource):
         return None, 404
 
     def delete(self, id):
-        data = request.json
-        if data['id_'] == id:
-            item = self.__dao.read_by_id(id)
-            self.__dao.delete(item)
-            return None, 204
-        return None, 404
+        item = self.__dao.read_by_id(id)
+        self.__dao.delete(item)
+        return None, 204
